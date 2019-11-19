@@ -1,19 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {createStore, combineReducers} from 'redux';
+import { Provider } from 'react-redux';
+
+
+
+import betReducer from './store/reducers/bets';
+import profileReducer from './store/reducers/profile';
+import Initializer from './navigation/Initializer';
+
+const rootReducer = combineReducers({
+  bets: betReducer,
+  profile: profileReducer,
+});
+
+const store = createStore(rootReducer);
+
 
 export default function App() {
+
+
+
+ 
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Provider store={store}>
+      <Initializer />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
