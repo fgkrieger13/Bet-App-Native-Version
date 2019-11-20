@@ -10,11 +10,11 @@ import BetItem from '../../components/BetItem';
 
 const ProfilePage = props => {
 
-    const user = useSelector(state => state.profile.user);
+    const user = useSelector(state => state.profile.userProfile);
 
     return (
         <View style={styles.screen}>
-            <Text>Profile</Text>
+            <Text>{user.firstName}</Text>
         </View>
     );
 }
