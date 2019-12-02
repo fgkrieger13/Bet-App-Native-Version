@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { FlatList, Text, View, StyleSheet} from 'react-native';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
+import { LinearGradient } from 'expo-linear-gradient';
 import HeaderButton from '../../components/HeaderButton'
 import {useSelector} from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -25,16 +26,18 @@ const BetsPage = props => {
     const bets = useSelector(state => state.bets.currentBets);
 
     return (
+        <LinearGradient colors={['#d7a8ac', '#BA676E', '#82484D']} style={styles.linearGradient}>
         <View
         style={styles.screen}>
+            <ScrollView>
         {/* <Text style={styles.header}>{JSON.stringify(bets)}</Text> */}
         <Text style={styles.header}>CURRENT BETS</Text>
-    <ScrollView>
+    
     <NewBetButton/>
     <FlatList 
     data={bets} 
     keyExtractor={item => item.id}
-    renderItem={itemData => <BetItem betType={itemData.item.betType}
+    renderItem={itemData => <BetItem style={styles.text} betType={itemData.item.betType}
     timeSelect={itemData.item.timeSelect}
     betDays={itemData.item.monday} 
     betAmount={itemData.item.betAmount}
@@ -42,6 +45,7 @@ const BetsPage = props => {
     />
     </ScrollView>
     </View>
+    </LinearGradient>
     );
 }
 
@@ -54,21 +58,34 @@ BetsPage.navigationOptions = navData => {
         }}
         />
     </HeaderButtons>
-    )} 
+    ),
+    headerLeft:( <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item title="Home" iconName='md-home' onPress={()=> {
+            navData.navigation.navigate('Bets')
+        }}
+        />
+    </HeaderButtons>
+    )}
 }
     
 
 const styles = StyleSheet.create({
     screen: {
         height: "100%",
-        backgroundColor: '#d7a8ac',
+    },
+  
+    linearGradient: {
+        flex: 1,
+        
+        borderRadius: 5
     },
    header: {
        marginVertical: 30,
        textAlign: 'center',
-        fontSize: 32,
-        color: 'white'
-   }
+       fontFamily: 'bungee',
+        fontSize: 36,
+        color: '#9D2731'
+   },
 
 });
 

@@ -15,6 +15,10 @@ import Colors from '../constants/Colors'
         headerStyle: {
             backgroundColor: Colors.primary
         },
+        headerTitleStyle: {
+            fontFamily: 'bungee',
+            fontSize: 26,
+        },
         headerTintColor: 'white'
 
     }

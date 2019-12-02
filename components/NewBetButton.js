@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Button, StyleSheet, TouchableOpacity,} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity,} from 'react-native';
 
 
 
@@ -9,7 +9,7 @@ const NewBetButton = props => {
         <TouchableOpacity>
         <View style={styles.bet}>
             <View style = {styles.actions}>
-                <Button color= 'white'title="New Bet +"/>
+                <Text style = {styles.text}>New Bet +</Text>
             </View>
         </View>
         </TouchableOpacity>
@@ -23,11 +23,17 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 8,
         backgroundColor: 'rgba(157, 39, 49, .51)',
-        height: 80,
         marginVertical: 12,
-        marginRight: '60%',
+        marginRight: '50%',
     },
-  
+    text: {
+        fontFamily: 'allerta-stencil',
+        color: 'white',
+        fontSize: 18,
+        marginLeft: 16,
+        paddingTop: 4,
+    },
+
     actions: {
         flexDirection: 'row',
         justifyContent: 'space-between',
