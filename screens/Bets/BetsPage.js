@@ -37,7 +37,7 @@ const BetsPage = props => {
     <FlatList 
     data={bets} 
     keyExtractor={item => item.id}
-    renderItem={itemData => <BetItem style={styles.text} betType={itemData.item.betType}
+    renderItem={itemData => <BetItem betType={itemData.item.betType}
     timeSelect={itemData.item.timeSelect}
     betDays={itemData.item.monday} 
     betAmount={itemData.item.betAmount}

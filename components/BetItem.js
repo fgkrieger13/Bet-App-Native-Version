@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View, Text, Button, StyleSheet, TouchableOpacity,} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet, TouchableOpacity, } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 
 
@@ -10,56 +10,40 @@ const BetItem = props => {
 
 
     return (
-        <TouchableOpacity onPress = {()=> {
+        <TouchableOpacity onPress={() => {
             setShowDelete(prevState => !prevState)
         }}>
-        <View style={styles.bet}>
-            <View style = {styles.details}>
-            <Text style = {styles.type}>{props.betType}</Text>
-            <Text style = {styles.time}>{props.timeSelect}</Text>
-            <Text style = {styles.days}>{props.betDays}</Text>
-            <Text style = {styles.amount}>${props.betAmount}</Text>
-            {/* <View style = {styles.actions}>
-                {showDelete ? 
-            <TouchableOpacity onPress = {()=> {
-                setShowDelete(prevState => !prevState)
-            }} style = {styles.delete}>
-                    <Ionicons name = 'ios-arrow-down' size={26}
-                    color='white'/>
-                </TouchableOpacity> : 
-                <View style = {styles.details2}> 
-                <Text style = {styles.deleteButton}>Delete</Text>
-                    <TouchableOpacity onPress = {()=> {
-                setShowDelete(prevState => !prevState)
-            }} style = {styles.delete}>
-                    <Ionicons name = 'ios-arrow-up' size={26}
-                    color='white'/>
-                </TouchableOpacity>
-                </View>}
-            </View> */}
-            </View>
-
-            <View style = {styles.actions}>
-                {showDelete ? 
-            <TouchableOpacity onPress = {()=> {
-                setShowDelete(prevState => !prevState)
-            }} style = {styles.delete}>
-                    <Ionicons name = 'ios-arrow-down' size={26}
-                    color='white'/>
-                </TouchableOpacity> : 
-                <View style = {styles.details2}> 
-                <Text style = {styles.deleteButton}>Delete</Text>
-                    <TouchableOpacity onPress = {()=> {
-                setShowDelete(prevState => !prevState)
-            }} style = {styles.delete}>
-                    <Ionicons name = 'ios-arrow-up' size={26}
-                    color='white'/>
-                </TouchableOpacity>
-                </View>}
-            </View>
-            
-        </View>
-        </TouchableOpacity>
+            {showDelete ?
+                <View style={styles.bet}>
+                    <View style={styles.details}>
+                        <Text style={styles.type}>{props.betType}</Text>
+                        <Text style={styles.time}>{props.timeSelect}</Text>
+                        <Text style={styles.days}>{props.betDays}</Text>
+                        <Text style={styles.amount}>${props.betAmount}</Text>
+                    </View>
+                    <View style={styles.actions}>
+                        
+                            <Ionicons name='ios-arrow-down' size={26}
+                                color='white' />
+                         </View></View>:
+                 <View style={styles.bet}>
+                            <View style={styles.details}>
+                                <Text style={styles.type}>{props.betType}</Text>
+                                <Text style={styles.time}>{props.timeSelect}</Text>
+                                <Text style={styles.days}>{props.betDays}</Text>
+                                <Text style={styles.amount}>${props.betAmount}</Text>
+                            </View>
+                            <View style={styles.details2}>
+                                <View style={styles.deleteButton} onPress={()=>{}}>
+                                <Text style={styles.deleteText}>Delete</Text>
+                                </View>
+                                    <View style={styles.actions2}>
+                                    <Ionicons name='ios-arrow-up' size={26}
+                                        color='white' />
+                                </View>
+                            </View>
+                        </View>}
+    </TouchableOpacity>
     );
 };
 
@@ -67,18 +51,27 @@ const styles = StyleSheet.create({
     bet: {
         shadowColor: 'black',
         shadowOpacity: 0.5,
-        shadowOffset: {width: 0, height: 2},
+        shadowOffset: { width: 0, height: 2 },
         shadowRadius: 8,
         backgroundColor: 'rgba(157, 39, 49, .51)',
         // height: 80,
         marginVertical: 12,
     },
     deleteButton: {
-        paddingTop: 20,
-        marginBottom: 20,
-        marginRight: '34%',
+        marginBottom: 10,
+        marginLeft: '35%',
+        shadowColor: 'black',
+        shadowOpacity: 0.5,
+        shadowOffset: {width: 0, height: 2},
+        shadowRadius: 8,
+        backgroundColor: 'rgba(255, 255, 255, 0.40)',
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 16,
+    },
+    deleteText: {
         fontFamily: 'allerta-stencil',
-        color: 'white',
+        color: '#9D2731',
         fontSize: 18,
     },
     details: {
@@ -90,9 +83,9 @@ const styles = StyleSheet.create({
     details2: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 10,
+        paddingBottom: 5,
     },
-  
+
     type: {
         paddingTop: 18,
         paddingBottom: 18,
@@ -100,7 +93,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
         marginLeft: 16,
-    
+
     },
     time: {
         paddingTop: 18,
@@ -124,6 +117,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 10,
         paddingTop: 24,
+        position: "absolute",
+        right: 10,
+    },
+    actions2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        margin: 10,
         position: "absolute",
         right: 10,
     },
