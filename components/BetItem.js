@@ -82,9 +82,9 @@ const BetItem = props => {
 const styles = StyleSheet.create({
     bet: {
         shadowColor: 'black',
-        shadowOpacity: 0.5,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 8,
+        shadowOpacity: 0.6,
+        shadowOffset: { width: 0, height: 4 },
+        shadowRadius: 3,
         backgroundColor: 'rgba(157, 39, 49, .51)',
         // height: 80,
         marginVertical: 12,
