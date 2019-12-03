@@ -9,8 +9,7 @@ import {AppLoading} from 'expo';
 
 import betReducer from './store/reducers/bets';
 import profileReducer from './store/reducers/profile';
-import Initializer from './navigation/Initializer';
-import BetsPage from './screens/Bets/BetsPage';
+
 import BetNavigator from './navigation/BetNavigator';
 
 const rootReducer = combineReducers({

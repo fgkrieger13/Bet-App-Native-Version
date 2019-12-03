@@ -1,10 +1,10 @@
-import PROFILE from '../../data/dummy-data';
+import PROFILE from '../../data/dummy-profile';
 
 
 
 const initialState = {
     user:  PROFILE,
-    userProfile: PROFILE.filter(user => user.id === '1')
+    userProfile: PROFILE.filter(profile => profile.id === '1')
 };
 
 export default (state = initialState, action) => {

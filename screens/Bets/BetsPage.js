@@ -19,9 +19,6 @@ const BetsPage = props => {
     let dispatch = useDispatch();
 
    
-    useEffect(() => {
-    dispatch(betActions.fetchBets())
-    },[dispatch]);
 
     const bets = useSelector(state => state.bets.currentBets);
 
@@ -38,8 +35,15 @@ const BetsPage = props => {
     data={bets} 
     keyExtractor={item => item.id}
     renderItem={itemData => <BetItem betType={itemData.item.betType}
+    timeAmount={itemData.item.timeAmount}
     timeSelect={itemData.item.timeSelect}
-    betDays={itemData.item.monday} 
+    monday={itemData.item.monday}
+    tuesday={itemData.item.tuesday} 
+    wednesday={itemData.item.wednesday} 
+    thursday={itemData.item.thursday} 
+    friday={itemData.item.friday} 
+    saturday={itemData.item.saturday} 
+    sunday={itemData.item.sunday} 
     betAmount={itemData.item.betAmount}
     />}
     />

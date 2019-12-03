@@ -48,7 +48,39 @@ const BETS = [
         false,
         false,
         '1'
-    )
+    ),
+    new Bet(
+        '2',
+        'Wakeup',
+        2.00,
+        'null',
+        '7:00am',
+        'ALZ Org',
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        '1'
+    ),
+    new Bet(
+        '3',
+        'Workout',
+        5.00,
+        '30:00',
+        '12:00pm',
+        'ALZ Org',
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        '1'
+    ),
 ];
 
 export default BETS;

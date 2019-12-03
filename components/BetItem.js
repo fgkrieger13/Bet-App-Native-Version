@@ -17,33 +17,65 @@ const BetItem = props => {
                 <View style={styles.bet}>
                     <View style={styles.details}>
                         <Text style={styles.type}>{props.betType}</Text>
-                        <Text style={styles.time}>{props.timeSelect}</Text>
-                        <Text style={styles.days}>{props.betDays}</Text>
+                        {props.betType === 'Wakeup' &&
+                            <Text style={styles.time}>{props.timeSelect}</Text>}
+                        {props.betType === 'Workout' &&
+                            <Text style={styles.time}>{props.timeAmount}</Text>}
+                            {props.sunday === true &&
+                            <Text style={styles.day}>S</Text>}
+                            {props.monday === true &&
+                            <Text style={styles.day}>M</Text>}
+                            {props.tuesday === true &&
+                            <Text style={styles.day}>T</Text>}
+                            {props.wednesday === true &&
+                            <Text style={styles.day}>W</Text>}
+                            {props.thursday === true &&
+                            <Text style={styles.day}>R</Text>}
+                            {props.friday === true &&
+                            <Text style={styles.day}>F</Text>}
+                            {props.saturday === true &&
+                            <Text style={styles.day}>S</Text>}
                         <Text style={styles.amount}>${props.betAmount}</Text>
                     </View>
                     <View style={styles.actions}>
-                        
-                            <Ionicons name='ios-arrow-down' size={26}
+
+                        <Ionicons name='ios-arrow-down' size={26}
+                            color='white' />
+                    </View></View> :
+                <View style={styles.bet}>
+                    <View style={styles.details}>
+                        <Text style={styles.type}>{props.betType}</Text>
+                        {props.betType === 'Wakeup' &&
+                            <Text style={styles.time}>{props.timeSelect}</Text>}
+                        {props.betType === 'Workout' &&
+                            <Text style={styles.time}>{props.timeAmount}</Text>}
+                            {props.sunday === true &&
+                            <Text style={styles.day}>S</Text>}
+                            {props.monday === true &&
+                            <Text style={styles.day}>M</Text>}
+                            {props.tuesday === true &&
+                            <Text style={styles.day}>T</Text>}
+                            {props.wednesday === true &&
+                            <Text style={styles.day}>W</Text>}
+                            {props.thursday === true &&
+                            <Text style={styles.day}>R</Text>}
+                            {props.friday === true &&
+                            <Text style={styles.day}>F</Text>}
+                            {props.saturday === true &&
+                            <Text style={styles.day}>S</Text>}
+                        <Text style={styles.amount}>${props.betAmount}</Text>
+                    </View>
+                    <View style={styles.details2}>
+                        <View style={styles.deleteButton} onPress={() => { }}>
+                            <Text style={styles.deleteText}>Delete</Text>
+                        </View>
+                        <View style={styles.actions2}>
+                            <Ionicons name='ios-arrow-up' size={26}
                                 color='white' />
-                         </View></View>:
-                 <View style={styles.bet}>
-                            <View style={styles.details}>
-                                <Text style={styles.type}>{props.betType}</Text>
-                                <Text style={styles.time}>{props.timeSelect}</Text>
-                                <Text style={styles.days}>{props.betDays}</Text>
-                                <Text style={styles.amount}>${props.betAmount}</Text>
-                            </View>
-                            <View style={styles.details2}>
-                                <View style={styles.deleteButton} onPress={()=>{}}>
-                                <Text style={styles.deleteText}>Delete</Text>
-                                </View>
-                                    <View style={styles.actions2}>
-                                    <Ionicons name='ios-arrow-up' size={26}
-                                        color='white' />
-                                </View>
-                            </View>
-                        </View>}
-    </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>}
+        </TouchableOpacity>
     );
 };
 
@@ -62,7 +94,7 @@ const styles = StyleSheet.create({
         marginLeft: '35%',
         shadowColor: 'black',
         shadowOpacity: 0.5,
-        shadowOffset: {width: 0, height: 2},
+        shadowOffset: { width: 0, height: 2 },
         shadowRadius: 8,
         backgroundColor: 'rgba(255, 255, 255, 0.40)',
         paddingVertical: 8,
@@ -77,7 +109,7 @@ const styles = StyleSheet.create({
     details: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 10,
+        padding: 8,
         marginHorizontal: 10,
     },
     details2: {
@@ -102,6 +134,14 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
         marginLeft: 16,
+        marginRight: 16,
+    },
+    day: {
+        paddingTop: 18,
+        paddingBottom: 18,
+        fontFamily: 'allerta-stencil',
+        color: 'white',
+        fontSize: 18,
     },
     amount: {
         paddingTop: 18,
@@ -116,7 +156,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         margin: 10,
-        paddingTop: 24,
+        paddingTop: 18,
         position: "absolute",
         right: 10,
     },

@@ -20,14 +20,14 @@ const ProfilePage = props => {
         <ScrollView>
         <View
         style={styles.screen}>
-        {/* <Text style={styles.header}>{JSON.stringify(bets)}</Text> */}
-        <Text style={styles.header}>Grant Krieger</Text>
+        {/* <Text style={styles.header}>{JSON.stringify(user[0].userName)}</Text> */}
+        <Text style={styles.header}>{user[0].firstName} {user[0].lastName}</Text>
 
         <Image style = {styles.image} source = {require('../../assets/profilepic.jpg')}/>
 
         <View style={styles.infoBackground}>
-            <Text style={styles.info}>Username: fgkrieger13</Text>
-            <Text style={styles.info2}>Account: $210</Text>
+            <Text style={styles.info}>Username: {user[0].userName}</Text>
+            <Text style={styles.info2}>Account: ${user[0].account}</Text>
             <View style = {styles.buttonShape}>
             <TouchableOpacity>
             <Text style={styles.logout}>Log Out</Text>
